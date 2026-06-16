@@ -30,16 +30,31 @@ These are the elements outlined in John Gruber’s original design document. All
 1. First item
 2. Second item
 3. Third item
+   1. Cocos
+   2. Reten
+      1. supermercado
+      2. caca
+4. Caca
+   1. Codigo
 
 ### Unordered List
 
 - First item
-- Second item
+  - Second item
 - Third item
+- 1983 was the best year
+    La Emi hace caca
+- Seguro que si
 
 ### Code
 
-`code`
+In line `code`.
+
+```python
+i = i + 1
+for i in range(5):
+    i = 3
+```
 
 ### Horizontal Rule
 
@@ -48,6 +63,9 @@ These are the elements outlined in John Gruber’s original design document. All
 ### Link
 
 [Markdown Guide](https://www.markdownguide.org)
+[Markdown Guide](https://www.markdownguide.org "hola perro dig this tooltip comment")
+
+Llevame a la sección de [blockquote](#blockquote)
 
 ### Image
 
@@ -116,6 +134,8 @@ H~2~O
 ### Superscript
 
 X^2^
+
+
 
 ## Mermaid diagrams
 
