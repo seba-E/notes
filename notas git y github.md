@@ -15,7 +15,7 @@ Limpiar referencias locales a remotas
 
 -------
 
-### Upload a new repository
+## Upload a new repository
 
 **git remote add origin git@github.com:yourusername/your-repo-name.git**
 This tells your local git "that GitHub URL is called origin".
@@ -32,4 +32,6 @@ To reload the window in vscode. Sometimes it helps when Ubuntu terminal doesn't 
 https://shields.io/badges  
 Activity, GitHub commit activity, notes repository, commits per month ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/seba-E/notes).
 
+## Editor web vscode para ediciones rápidas
 
+En la página principal de un repositorio presiona la tecla punto (.), o la tecla Enter. Este editor es sólo un editor de texto, no es lo mismo que una máquina virtual como codespaces.
