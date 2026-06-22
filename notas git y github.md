@@ -35,3 +35,7 @@ Activity, GitHub commit activity, notes repository, commits per month ![GitHub c
 ## Editor web vscode para ediciones rápidas
 
 En la página principal de un repositorio presiona la tecla punto (.), o la tecla Enter. Este editor es sólo un editor de texto, no es lo mismo que una máquina virtual como codespaces.
+
+# GitHub CLI
+Permite usar comandos en la terminal para controlar GitHub.
+[Manual de CLI GitHub](https://cli.github.com/manual/gh)
