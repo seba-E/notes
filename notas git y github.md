@@ -13,6 +13,9 @@ retrieve an entire repository from a hosted location via url.
 **git fetch --prune**
 Limpiar referencias locales a remotas
 
+**git branch -D [br_name]**
+elimina una rama localmente. Generalmente lo ocupo después de aceptar un pull request en la web de GitHub, y eliminar la rama remota, y aplicar git fetch --prune, para eliminar la rama local.
+
 -------
 
 ## Upload a new repository
@@ -36,6 +39,8 @@ Activity, GitHub commit activity, notes repository, commits per month ![GitHub c
 
 En la página principal de un repositorio presiona la tecla punto (.), o la tecla Enter. Este editor es sólo un editor de texto, no es lo mismo que una máquina virtual como codespaces.
 
-# GitHub CLI
+# GitHub CLI  
+CLI = Command Line Interface
 Permite usar comandos en la terminal para controlar GitHub.
 [Manual de CLI GitHub](https://cli.github.com/manual/gh)
+
