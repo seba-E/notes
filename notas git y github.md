@@ -27,6 +27,14 @@ This tells your local git "that GitHub URL is called origin".
 Subir nueva rama a GitHub, sólo la primera vez
 
 -------
+## Undo changes, going back to a previous commit
+To do this you first do it locally and then do a hard push to the remote repo.
+- Step 1 — go back one commit locally
+    `git reset --hard HEAD~1`
+- Step 2 — force push to make the remote match
+    `git push --force-with-lease origin main`
+
+-------
 
 **ctrl + shift + P,  then "developer: reload window".**
 To reload the window in vscode. Sometimes it helps when Ubuntu terminal doesn't show available in VSCode.
