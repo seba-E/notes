@@ -237,3 +237,76 @@ plt.show()
 ```
 
 ![alt text](Figuras/Figure_10_serie_de_tiempo.png)
+
+## Gráfico de series de tiempo (ventas mensuales)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from matplotlib.dates import DateFormatter
+
+dates = pd.date_range(start= '2024-12-31', periods=12, freq='ME')  # Generar fechas mensuales para un año
+
+values = np.random.randint(1000, 5000, size=12)
+
+data = pd.DataFrame({'Fecha': dates, 'Valor': values})
+
+# crear grafico de líneas
+fig, ax = plt.subplots(figsize=(12, 6))
+
+ax.xaxis.set_major_formatter(DateFormatter('%b %Y'))
+ax.plot(data['Fecha'], data['Valor'], color='blue', label='Ventas mensuales', marker='o', linestyle='-')
+ax.set_title('Análisis de ventas mensuales')
+ax.set_xlabel('Fecha')
+ax.set_ylabel('Valor')
+ax.legend()
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+![alt text](Figuras/Figure_11_ventas_mensuales.png)
+
+## Gráfico múltiple (3 subplots)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import matplotlib.gridspec as gridspec
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+data = np.random.rand(100)
+
+gs = gridspec.GridSpec(2, 2, height_ratios=[2,1], width_ratios=[1,1])
+fig = plt.figure(figsize=(10, 8))
+
+# primer subplot grande, ocupa toda la primera fila
+ax1 = fig.add_subplot(gs[0, :])
+ax1.plot(x, y, color='blue', label='Seno')
+ax1.set_title('Gráfico de Seno')
+ax1.set_xlabel('x')
+ax1.set_ylabel('Seno(x)')
+
+# segundo subplot, ocupa la esquina inferior izquierda
+ax2 = fig.add_subplot(gs[1,0])
+ax2.hist(data, bins=20, color='green', edgecolor='black')
+ax2.set_title('Histograma')
+ax2.set_xlabel('x')
+ax2.set_ylabel('Frecuencia')
+
+# tercer subplot, ocupa la esquina inferior derecha
+ax3 = fig.add_subplot(gs[1,1])
+ax3.scatter(x, y, color='red', label='Seno')
+ax3.set_title('Gráfico de Dispersión')
+ax3.set_xlabel('x')
+ax3.set_ylabel('Seno(x)')
+
+plt.tight_layout()
+plt.show()
+```
+
+![alt text](Figuras/Figure_12_triple_subplot.png)
