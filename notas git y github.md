@@ -36,6 +36,21 @@ To do this you first do it locally and then do a hard push to the remote repo.
 
 -------
 
+## .gitattributes file to fix end of lines
+When working with WSL to run git commands, an issue may arise with the end of line codifications. To fix this for a particular repo you can add a file to specify the end of line code (lf).
+This problem I first faced when doing a pool request and then merging branches online. Then I pulled the changes to the local repo and ran into an error: local files differed to remote files. After asking Claude code, the answer was that end of lines codes differed, but all the content in the files in question where just fine and did not differ.
+Claude code did the following command to  restore my local files and discard the changes in end of line format:
+`git restore src/interfaz.py src/main.py src/proceso.py`
+After the restore, you should be able to pull the changes without getting an error.
+
+### A permanent solution for each repo
+
+At the root of each repo, add a file with the name `.gitattributes`, which should contain just this line of code:
+
+`* text=auto eol=lf`
+
+-------
+
 **ctrl + shift + P,  then "developer: reload window".**
 To reload the window in vscode. Sometimes it helps when Ubuntu terminal doesn't show available in VSCode.
 
