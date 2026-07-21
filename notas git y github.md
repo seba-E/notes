@@ -62,8 +62,17 @@ Activity, GitHub commit activity, notes repository, commits per month ![GitHub c
 
 En la página principal de un repositorio presiona la tecla punto (.), o la tecla Enter. Este editor es sólo un editor de texto, no es lo mismo que una máquina virtual como codespaces.
 
-# GitHub CLI  
+## GitHub CLI  
 CLI = Command Line Interface
 Permite usar comandos en la terminal para controlar GitHub.
 [Manual de CLI GitHub](https://cli.github.com/manual/gh)
 
+## Version control in jupyter notebooks
+
+### Solving local merge conflicts with nbdime
+
+In your local folder run `git init`.
+Then you should have installed the nbdime package in the current virtual environment (you can do this either in a venv or in a conda environment). `conda install nbdime`
+Now run `nbdime config-git --enable` or `nbdime config-git --enable --global` to set up nbdime in the current project or in all projects(global).
+To trigger `nbdime mergetool`, Git needs to be in an active ***merge conflict state***. nbdime acts as Git's helper, so if Git hasn't flagged a conflict, nbdime rightly reports "No files need merging". 
+To create a merge conflict state you must have 2 branches and locally atempt to merge them with `git merge [branch]`. Then run `nbdime mergetool`.

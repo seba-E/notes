@@ -41,17 +41,27 @@ Ejecutar archivo:
 
 Para trabajar con git y github en proyectos con jupyter notebooks, se usa el paquete nbdime (se debe instalar en el entorno virtual, puede ser con `conda install nbdime`). Así se instalará en el entorno activo de conda. Los archivos de notebooks no están basados en formato de texto, ya que están basados en archivos de tipo json. Por eso no es posible ver los contenidos y cambios en un simple editor de texto.
 
-`nbdime config-git --enable`
+`nbdime config-git --enable` or
+`nbdime config-git --enable --global` 
 `nbdiff ejemplo.ipynb ejemplo2.ipynb` comparar diferencias entre 2 notebooks.
 
 ¿Cómo fusionar cambios con `nbmerge`?
 
-Cuando dos desarrolladores trabajan sobre la misma notebook y Git detecta un conflicto, nbdime ofrece el comando nbmerge para fusionar los cambios. Este proceso requiere tres archivos:
+Cuando dos desarrolladores trabajan sobre la misma notebook y Git detecta un conflicto, nbdime ofrece el comando nbmerge para fusionar los cambios. 
+
+### Fusión con herramienta visual
+
+`nbdime mergetool` whenever you run into a merge conflict, you can simply run this command in your PowerShell terminal.
+It will spin up a local web server and automatically open a visual 3-way merge editor in your browser where you can resolve cell conflicts visually.
+
+### Fusión manual
+
+Este proceso requiere tres archivos:
 
 * Un archivo base (la versión original).
 * El archivo con los cambios del primer desarrollador.
 * El archivo con los cambios del segundo desarrollador.
 `cp ejemplo.ipynb base.ipynb`
-`nbmerge base.ipynb ejemplo.ipynb ejemplo2.ipynb -o resultado_fusion.ipynb`
+`nbmerge base.ipynb base_mod_user_a.ipynb base_mod_user_b.ipynb --out resultado_fusion.ipynb`
 
-El parámetro -o permite guardar el resultado en un nuevo archivo. Así obtienes una notebook fusionada sin necesidad de resolver manualmente el JSON.
+El parámetro --out permite guardar el resultado en un nuevo archivo. Así obtienes una notebook fusionada sin necesidad de resolver manualmente el JSON.

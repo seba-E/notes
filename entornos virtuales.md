@@ -26,6 +26,7 @@ In your regular powershell you can run the commands.
 
 `conda create --name my_env python=3.5`
 `conda activate my_env`
+`conda env list`
 
 ### Remove an environment
 
@@ -46,3 +47,20 @@ In your regular powershell you can run the commands.
 `conda env export > my_env.yaml` ➡ exportar entorno a archivo yaml
 `bash conda env create -f my_env.yaml` ➡ crear entorno a partir del archivo yaml
 `conda env update -f env.yaml` ➡ agregar librerías de archivo yaml al entorno activo.
+
+### Canales en conda
+
+¿Qué es un canal en Conda y por qué es importante?
+
+En el mundo del software y, en particular, de la gestión de paquetes, el concepto de "canal" es fundamental. En el contexto de Conda, un canal es un repositorio de paquetes de software. Conda utiliza estos repositorios para buscar, instalar y actualizar bibliotecas. Los canales no solo determinan la disponibilidad de un paquete, sino también qué tan actualizado está. Entender cómo funcionan y cómo priorizarlos puede mejorar significativamente tu flujo de trabajo.
+
+¿Cuáles son los principales canales en Conda?
+
+1. **Default**: canal oficial operado por Anaconda Inc. Privilegia estabilidad y soporte probado.
+2. **Conda Forge**: canal operado por la comunidad, lo que permite que se actualicen rápidamente los paquetes.
+
+`conda config --add channels conda-forge` agregar conda-forge a mis canales disponibles configurados.
+`conda install -c conda-forge bokeh` ejemplo instalar paquete bokeh desde conda-forge.
+`conda config --show channels` muestra canales disponibles configurados y su orden de prioridad.
+`conda config --set channel_priority strict` ajusta configuración de prioridades a estricta.
+`conda install numpy pandas matplotlib -c conda-forge` ejemplo, instalar paquetes desde conda-forge.
