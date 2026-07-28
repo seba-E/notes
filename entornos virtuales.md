@@ -44,9 +44,10 @@ In your regular powershell you can run the commands.
 `conda update scikit-learn` ➡ actualizar paquete específico en el entorno activo
 `conda update --all` ➡ actualizar todos los paquetes del entorno activo
 `conda create --clone my_env --name my_env_2` ➡ crear copia exacta de un entorno específico
-`conda env export > my_env.yaml` ➡ exportar entorno a archivo yaml
-`bash conda env create -f my_env.yaml` ➡ crear entorno a partir del archivo yaml
-`conda env update -f env.yaml` ➡ agregar librerías de archivo yaml al entorno activo.
+`conda env export > my_env.yml` ➡ exportar entorno a archivo yml
+`cat my_env.yml` ➡ genera informe de texto sobre el contenido del archivo yml.
+`bash conda env create -f my_env.yml` ➡ crear entorno a partir del archivo yml.
+`conda env update -f env.yml` ➡ agregar librerías de archivo yml al entorno activo.
 
 ### Canales en conda
 
@@ -64,3 +65,27 @@ En el mundo del software y, en particular, de la gestión de paquetes, el concep
 `conda config --show channels` muestra canales disponibles configurados y su orden de prioridad.
 `conda config --set channel_priority strict` ajusta configuración de prioridades a estricta.
 `conda install numpy pandas matplotlib -c conda-forge` ejemplo, instalar paquetes desde conda-forge.
+
+## Cookiecutter
+
+Herramienta para estructurar proyectos de ciencia de datos y machine learning.
+
+```python
+# Comando de instalación típico en Conda
+conda install -c conda-forge cookiecutter
+# Comenzar nuevo proyecto (usando versión antigua v1)
+ccds https://github.com/drivendataorg/cookiecutter-data-science -c v1
+```
+
+### Hooks para automatizar tareas en cookiecutter
+
+¿Qué son los hooks y qué tipos existen en Cookie Cutter?
+
+Los hooks son scripts en Python que se ejecutan de forma automática durante el proceso de generación de un proyecto con Cookie Cutter. Su propósito es automatizar configuraciones que normalmente se harían de forma manual, lo que garantiza consistencia entre proyectos.
+
+Existen dos tipos principales:
+
+**Pre-hook (pre_gen_project.py)**: se ejecuta antes de generar el proyecto. Es útil para validar la entrada del usuario o preparar configuraciones previas.
+**Post-hook (post_gen_project.py)**: se ejecuta después de generar el proyecto. Sirve para automatizar tareas como inicializar Git, crear entornos virtuales o instalar dependencias.
+
+Ambos archivos deben ubicarse dentro de una carpeta llamada hooks en la raíz de la plantilla, al mismo nivel que el archivo cookiecutter.json y el directorio del proyecto.
